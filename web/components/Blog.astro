@@ -1,0 +1,26 @@
+---
+import { getAllPosts } from "../../src/blog.js";
+const posts = await getAllPosts();
+---
+
+<div class="m-auto text-center mt-10">
+	<h2>Froggyho blog</h2>
+	<ul>
+		{
+			posts.map((post, index) => (
+				<div class="flex w-8/10 max-w-150 m-auto">
+					<li class="whitespace-nowrap">
+						<img
+							src="lily.png"
+							alt="Lily pad"
+							class="inline size-5"
+						/>
+						<a class="inline hover:font-bold" href={`/${index}/`}>
+							{post.title}
+						</a>
+					</li>
+				</div>
+			))
+		}
+	</ul>
+</div>

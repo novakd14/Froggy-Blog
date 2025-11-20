@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getAllPosts } from "../../src/blog";
+
+export async function getStaticPaths() {
+	const posts = await getAllPosts();
+	return posts.map((post, index) => {
+		return { params: { post: index }, props: { post } };
+	});
+}
+
+const { post } = Astro.props;
+
+const lines = post.body.split("\n");
+---
+
+<Layout>
+	<div class="w-9/10 m-auto mt-10">
+		<h2 class="text-center mb-5">{post.title}</h2>
+		{lines.map((line) => <p>{line}</p>)}
+		<p class="mt-5 hover:text-gray-600 font-bold">
+			<a href="/"> Zpět</a>
+		</p>
+	</div>
+</Layout>
