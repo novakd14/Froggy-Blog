@@ -7,7 +7,6 @@ import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://novakd14.github.io/Froggy-Blog',
 
   srcDir: './web',
 
